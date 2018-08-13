@@ -38,7 +38,8 @@ defmodule KioskNerves.MixProject do
   defp deps do
     [
       {:nerves, "~> 1.0", runtime: false},
-      {:webengine_kiosk, path: "../webengine_kiosk"},
+      #{:webengine_kiosk, path: "../webengine_kiosk"},
+      {:webengine_kiosk, github: "fhunleth/webengine_kiosk"},
       {:shoehorn, "~> 0.2"}
     ] ++ deps(@target)
   end

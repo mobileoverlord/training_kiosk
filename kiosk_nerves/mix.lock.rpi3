@@ -23,5 +23,5 @@
   "shoehorn": {:hex, :shoehorn, "0.3.1", "e4f1db8f25e3e6ccba4ab787a45a3c6968c0cc483d8e55425385becdd101387e", [:mix], [{:distillery, "~> 1.0", [hex: :distillery, repo: "hexpm", optional: false]}], "hexpm"},
   "socket": {:hex, :socket, "0.3.13", "98a2ab20ce17f95fb512c5cadddba32b57273e0d2dba2d2e5f976c5969d0c632", [:mix], [], "hexpm"},
   "system_registry": {:hex, :system_registry, "0.8.0", "09240347628b001433d18279a2759ef7237ba7361239890d8c599cca9a2fbbc2", [:mix], [], "hexpm"},
-  "webengine_kiosk": {:git, "https://bitbucket.org/fhunleth/webengine_kiosk", "264806d4be680e60ba3061cfbbc87108b2277c6c", []},
+  "webengine_kiosk": {:git, "https://github.com/fhunleth/webengine_kiosk.git", "535d17c0437bdb0761bdfabf8dc219089383ea43", []},
 }
