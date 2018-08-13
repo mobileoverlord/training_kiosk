@@ -18,19 +18,24 @@ config :shoehorn,
 
 config :nerves_firmware_ssh,
   authorized_keys: [
-    File.read!(Path.join(System.user_home!, ".ssh/id_rsa.pub"))
+    File.read!(Path.join(System.user_home!(), ".ssh/id_rsa.pub"))
   ]
 
 config :nerves_init_gadget,
   ifname: "eth0",
   address_method: :dhcp,
-  mdns_domain: "js-kiosk.local",
+  mdns_domain: :hostname,
   node_name: "kiosk",
-  node_host: :mdns_domain
+  ssh_console_port: 22
 
 config :webengine_kiosk,
   fullscreen: true,
-  homepage: "file:///var/www/index.html"
+  homepage: "file:///var/www/index.html",
+  background_color: "black",
+  blank_image: "/var/www/assets/nerves.png",
+  progress: true
+
+config :logger, backends: [RingLogger]
 
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
