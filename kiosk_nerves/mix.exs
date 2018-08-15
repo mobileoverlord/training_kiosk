@@ -38,8 +38,8 @@ defmodule KioskNerves.MixProject do
   defp deps do
     [
       {:nerves, "~> 1.0", runtime: false},
-      #{:webengine_kiosk, path: "../webengine_kiosk"},
-      {:webengine_kiosk, github: "fhunleth/webengine_kiosk"},
+      {:webengine_kiosk, path: "~/nerves/webengine_kiosk"},
+      # {:webengine_kiosk, github: "fhunleth/webengine_kiosk"},
       {:shoehorn, "~> 0.2"}
     ] ++ deps(@target)
   end
@@ -51,11 +51,17 @@ defmodule KioskNerves.MixProject do
     [
       {:nerves_runtime, "~> 0.4"},
       {:nerves_init_gadget, "~> 0.3"},
-      {:nerves_time, "~> 0.2"}
+      {:nerves_time, "~> 0.2"},
+      {:nerves_system_br, path: "~/nerves/nerves_system_br", runtime: false, override: true}
     ] ++ system(target)
   end
 
   # defp system("rpi3"), do: [{:kiosk_system_rpi3, "~> 1.0", runtime: false}]
-  defp system("rpi3"), do: [{:kiosk_system_rpi3, path: "~/dev/letote/kiosk_system_rpi3", runtime: false}]
+  defp system("rpi3"),
+    do: [
+      {:kiosk_system_rpi3,
+       path: "~/nerves/nerves_system_br/o/configs/kiosk_system_rpi3", runtime: false}
+    ]
+
   defp system(target), do: Mix.raise("Unknown MIX_TARGET: #{target}")
 end

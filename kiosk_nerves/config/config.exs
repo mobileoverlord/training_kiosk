@@ -30,10 +30,12 @@ config :nerves_init_gadget,
 
 config :webengine_kiosk,
   fullscreen: true,
-  homepage: "file:///var/www/index.html",
+  homepage: "https://nerves-hub.org/",
+  #homepage: "file:///var/www/index.html",
   background_color: "black",
   blank_image: "/var/www/assets/nerves.png",
-  progress: true
+  progress: true,
+  sounds: false
 
 config :logger, backends: [RingLogger]
 
