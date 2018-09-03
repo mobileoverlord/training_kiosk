@@ -36,6 +36,7 @@ config :phx_kiosk, PhxKioskWeb.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{lib/phx_kiosk_web/views/.*(ex)$},
+      ~r{lib/phx_kiosk_web/channels/.*(ex)$},
       ~r{lib/phx_kiosk_web/templates/.*(eex)$}
     ]
   ]

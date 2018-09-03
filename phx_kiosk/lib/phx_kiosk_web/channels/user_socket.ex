@@ -3,6 +3,8 @@ defmodule PhxKioskWeb.UserSocket do
 
   ## Channels
   # channel "room:*", PhxKioskWeb.RoomChannel
+  channel "home:lobby", PhxKioskWeb.HomeChannel
+
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
