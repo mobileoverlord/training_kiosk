@@ -15,6 +15,11 @@ defmodule PhxKioskWeb.HomeChannel do
     end
   end
 
+  def handle_in("drawLine", params, socket) do
+    broadcast! socket, "drawLine", params
+    {:noreply, socket}
+  end
+
   def handle_in("brightness", %{"value" => value} = payload, socket) do
     Logger.debug("Brightness: #{inspect value}")
     broadcast socket, "brightness", payload

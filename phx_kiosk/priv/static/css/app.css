@@ -32,6 +32,11 @@
   cursor: pointer;
 }
 
+canvas#draw-canvas {
+  margin-top: 20px;
+  outline-style: solid;
+}
+
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
