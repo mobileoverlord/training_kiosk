@@ -15,8 +15,11 @@ channel.join()
     .receive("error", resp => 
       { console.log("Unable to join", resp) })
 
-
 var brightnessSlider = document.getElementById("brightnessRange");
+
+channel.on("brightness", payload => {
+  brightnessSlider.value = payload.value;
+})
 
 brightnessSlider.oninput = function() {
   channel.push("brightness", {value: parseInt(this.value)})
