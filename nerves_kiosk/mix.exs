@@ -40,7 +40,8 @@ defmodule NervesKiosk.MixProject do
       {:nerves, "~> 1.3", runtime: false},
       {:shoehorn, "~> 0.4"},
       {:ring_logger, "~> 0.4"},
-      {:webengine_kiosk, "~> 0.1"}
+      {:webengine_kiosk, "~> 0.1"},
+      {:phx_kiosk, path: "../phx_kiosk"}
     ] ++ deps(@target)
   end
 

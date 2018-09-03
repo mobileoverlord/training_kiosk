@@ -49,7 +49,20 @@ config :nerves_init_gadget,
 config :webengine_kiosk,
   uid: "kiosk",
   gid: "kiosk",
-  data_dir: "/root/kiosk"
+  data_dir: "/root/kiosk",
+  homepage: "http://localhost"
+
+config :phx_kiosk, PhxKioskWeb.Endpoint,
+  url: [host: "localhost"],
+  http: [port: 80],
+  secret_key_base: "123456",
+  root: Path.dirname(__DIR__),
+  server: true,
+  render_errors: [view: PhxKioskWeb.ErrorView, 
+    accepts: ~w(html json)],
+  pubsub: [name: Nerves.PubSub, adapter: Phoenix.PubSub.PG2],
+  code_reloader: false,
+  check_origin: false
 
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
