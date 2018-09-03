@@ -49,5 +49,7 @@ defmodule NervesKiosk.Application do
     :os.cmd('udevadm settle --timeout=30');
     # Workaround a known bug with HTML5 canvas and rpi gpu
     System.put_env("QTWEBENGINE_CHROMIUM_FLAGS", "--disable-gpu")
+    System.put_env("QTWEBENGINE_REMOTE_DEBUGGING", "9222")
+    MuonTrap.Daemon.start_link("socat",["tcp-listen:9223,fork", "tcp:localhost:9222"])
   end
 end

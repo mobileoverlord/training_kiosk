@@ -1,1 +1,4 @@
-<h2>Nerves <3 Phoenix</h2>
+<div class="slidecontainer">
+  <p>Screen brightness</p>
+  <input type="range" min="1" max="100" value="100" class="slider" id="brightnessRange">
+</div>
