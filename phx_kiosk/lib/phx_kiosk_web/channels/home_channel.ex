@@ -3,8 +3,12 @@ defmodule PhxKioskWeb.HomeChannel do
 
   require Logger
 
+  @from_range 1..100
+  @to_range 15..255
+
   def join("home:lobby", payload, socket) do
     if authorized?(payload) do
+      send(self(), :after_join)
       {:ok, socket}
     else
       {:error, %{reason: "unauthorized"}}
@@ -14,6 +18,9 @@ defmodule PhxKioskWeb.HomeChannel do
   def handle_in("brightness", %{"value" => value} = payload, socket) do
     Logger.debug("Brightness: #{inspect value}")
     broadcast socket, "brightness", payload
+
+    map_range(@from_range, @to_range, value)
+    |> PhxKiosk.Backlight.set_brightness()
     {:noreply, socket}
   end
 
@@ -28,6 +35,17 @@ defmodule PhxKioskWeb.HomeChannel do
   def handle_in("shout", payload, socket) do
     broadcast socket, "shout", payload
     {:noreply, socket}
+  end
+
+  def handle_info(:after_join, socket) do
+    brightness = 
+      map_range(@to_range, @from_range, PhxKiosk.Backlight.brightness())
+    push(socket, "brightness", %{value: brightness})
+    {:noreply, socket}
+  end
+
+  defp map_range(a1 .. a2, b1 .. b2, s) do
+    b1 + (s - a1) * (b2 - b1) / (a2 - a1)
   end
 
   # Add authorization logic here as required.
