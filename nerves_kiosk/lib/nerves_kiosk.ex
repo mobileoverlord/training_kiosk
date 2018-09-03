@@ -12,7 +12,11 @@ defmodule NervesKiosk do
       :world
 
   """
+
+  require Logger
+
   def hello do
+    Logger.debug("Hello")
     :world
   end
 end
