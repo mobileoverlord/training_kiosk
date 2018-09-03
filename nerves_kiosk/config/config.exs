@@ -46,6 +46,11 @@ config :nerves_init_gadget,
   node_host: :mdns_domain,
   ssh_console_port: 22
 
+config :webengine_kiosk,
+  uid: "kiosk",
+  gid: "kiosk",
+  data_dir: "/root/kiosk"
+
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 # Uncomment to use target specific configurations

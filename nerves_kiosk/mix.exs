@@ -39,7 +39,8 @@ defmodule NervesKiosk.MixProject do
     [
       {:nerves, "~> 1.3", runtime: false},
       {:shoehorn, "~> 0.4"},
-      {:ring_logger, "~> 0.4"}
+      {:ring_logger, "~> 0.4"},
+      {:webengine_kiosk, "~> 0.1"}
     ] ++ deps(@target)
   end
 
@@ -53,6 +54,6 @@ defmodule NervesKiosk.MixProject do
     ] ++ system(target)
   end
 
-  defp system("rpi3"), do: [{:nerves_system_rpi3, "~> 1.0", runtime: false}]
+  defp system("rpi3"), do: [{:kiosk_system_rpi3, "~> 1.0", runtime: false}]
   defp system(target), do: Mix.raise("Unknown MIX_TARGET: #{target}")
 end
