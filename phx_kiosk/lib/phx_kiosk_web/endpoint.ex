@@ -2,6 +2,7 @@ defmodule PhxKioskWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :phx_kiosk
 
   socket "/socket", PhxKioskWeb.UserSocket
+  socket "/wobserver", Wobserver.Web.PhoenixSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
